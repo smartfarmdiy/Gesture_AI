@@ -3,9 +3,10 @@
 AI Gesture-Driven Smart Trash Bin Robot
 Built with Grove Vision AI Module V2 and Seeed Studio XIAO ESP32S3
 
-SenseCraft AI platform
+
 
 Key Steps:
+SenseCraft AI platform
 Sign in to the SenseCraft AI platform
 1 Sign in to the SenseCraft AI platform
 Choose a compatible gesture recognition model
