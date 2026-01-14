@@ -9,18 +9,37 @@ Built with Grove Vision AI Module V2 and Seeed Studio XIAO ESP32S3
 
 Key Steps:
 SenseCraft AI platform
+
+
 Sign in to the SenseCraft AI platform
+
+
+
 1 Sign in to the SenseCraft AI platform
+
+
 Choose a compatible gesture recognition model
+
+
 1 Choose a compatible gesture recognition model
+
 Flash the model to Vision V2 via USB-C
+
 1 Flash the model to Vision V2 via USB-C
+
 Monitor real-time detection results through the preview interface
+
 1 Monitor real-time detection results through the preview interface
+
 The biggest advantage of this approach is accessibility—no complex training pipeline or deep AI knowledge is required. The visual feedback makes debugging fast and intuitive.
+
 Once a gesture is detected, Vision V2 sends structured recognition data to the main controller over I²C communication.
+
 Embedded Control Layer
+
+
 The XIAO ESP32S3 serves as the central processing unit of the robot. Its tasks include:
+
 Receiving recognition data from Vision V2
 1 Receiving recognition data from Vision V2
 Decoding the transmitted JSON information
