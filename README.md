@@ -3,6 +3,8 @@
 AI Gesture-Driven Smart Trash Bin Robot
 Built with Grove Vision AI Module V2 and Seeed Studio XIAO ESP32S3
 
+*--------------------------------------------------------------------*
+
 
 
 Key Steps:
