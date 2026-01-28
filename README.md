@@ -321,6 +321,8 @@ This project is still a work in progress, but every experiment adds new insights
 
 -----------------------------------------------------------------------------------------------------------------
 
+
+
 จากการตรวจสอบข้อมูลในแหล่งที่มา การกำหนดหรือปรับแต่งระยะการทำงานและการตรวจจับท่าทางมือสามารถทำได้ผ่านกระบวนการทำงานของระบบ AI Vision และการจัดการข้อมูลในส่วนควบคุม ดังนี้ครับ:
 1. การตรวจสอบผ่าน Preview Interface: ในขั้นตอนการตั้งค่าผ่านแพลตฟอร์ม SenseCraft AI ผู้ใช้งานสามารถเฝ้าติดตามผลการตรวจจับได้แบบเรียลไทม์ผ่าน Preview Interface วิธีนี้ช่วยให้คุณเห็นว่าโมดูล Grove Vision AI V2 มองเห็นท่าทางมือที่ระยะต่างๆ อย่างไร และสามารถใช้เป็นข้อมูลในการปรับตำแหน่งการวางหุ่นยนต์หรือระยะห่างของผู้ใช้งานให้เหมาะสมได้,
 2. การใช้ข้อมูลจาก Bounding Boxes: เมื่อโมดูล AI ตรวจพบท่าทาง มันจะส่งข้อมูลในรูปแบบ JSON ซึ่งประกอบด้วยสิ่งที่เรียกว่า "Boxes" (กรอบที่ล้อมรอบวัตถุที่ตรวจจับได้), แม้ในแหล่งข้อมูลจะไม่ได้ระบุโค้ดการกำหนดระยะไว้โดยตรง แต่ตามหลักการทำงานของโมเดลประเภทนี้ ข้อมูลใน frame.boxes จะบอกตำแหน่งและขนาดของท่าทางมือที่ตรวจจับได้
@@ -330,6 +332,14 @@ This project is still a work in progress, but every experiment adds new insights
 4. การปรับแต่งผ่านซอฟต์แวร์ (Software Stack): การใช้ไลบรารี SSCMA ช่วยให้การรับส่งข้อมูลระหว่างโมดูล Vision และไมโครคอนโทรลเลอร์เป็นไปอย่างมีประสิทธิภาพ ซึ่งช่วยให้การนำค่าพิกัดหรือขนาดจากการตรวจจับมาใช้คำนวณระยะห่างทำได้แม่นยำขึ้นในสภาพแวดล้อมการพัฒนาแบบ Arduino framework,
 สรุป: คุณสามารถกำหนดระยะการตรวจจับได้โดยการสังเกตจากหน้าจอ Preview ของ SenseCraft AI เพื่อดูการตอบสนอง และใช้การเขียนโปรแกรมบน XIAO ESP32S3 เพื่อคัดกรองข้อมูล Bounding Box จาก JSON ว่ามีขนาดตรงตามระยะที่ต้องการให้หุ่นยนต์เริ่มทำงานหรือไม่,,
 เปรียบเทียบให้เห็นภาพ: กระบวนการนี้เปรียบเหมือน "การมองผ่านช่องมองประตู (Peephole)" กล้อง AI คือตาที่มองเห็นว่ามีคนเดินเข้ามาใกล้แค่ไหน (ขนาดของตัวคนในช่องมอง) ส่วนบอร์ดควบคุมคือสมองที่สั่งการว่า "จะเปิดประตูให้ก็ต่อเมื่อคนคนนั้นเดินมาหยุดยืนอยู่หน้าประตูพอดี" ไม่ใช่แค่เดินผ่านอยู่ในระยะไกลๆ นั่นเองครับ
+![Cleaned-AI_Gesture_Trash_Robot_Page_08](https://github.com/user-attachments/assets/9df4af53-bb6b-4769-b475-5a56bf7eaf9f)
+![Cleaned-AI_Gesture_Trash_Robot_Page_07](https://github.com/user-attachments/assets/5b5d8e5d-109c-4e6f-b508-f6f08cef4062)
+![Cleaned-AI_Gesture_Trash_Robot_Page_06](https://github.com/user-attachments/assets/79bc583c-dd9d-4ae9-837b-8db094a96863)
+![Cleaned-AI_Gesture_Trash_Robot_Page_05](https://github.com/user-attachments/assets/f2952620-6b62-4881-a658-0e2a48045767)
+![Cleaned-AI_Gesture_Trash_Robot_Page_04](https://github.com/user-attachments/assets/ad1b3dc6-3a73-41f8-926e-80178b0a37e0)
+![Cleaned-AI_Gesture_Trash_Robot_Page_03](https://github.com/user-attachments/assets/d0d8d97c-9e68-4ebb-a1c7-b190fd5e44bc)
+![Cleaned-AI_Gesture_Trash_Robot_Page_02](https://github.com/user-attachments/assets/6b67d352-5449-43cd-ab49-057eb4e77c14)
+![Cleaned-AI_Gesture_Trash_Robot_Page_01](https://github.com/user-attachments/assets/69fc1765-34e2-43ae-8006-7a6bb90afcfd)
 
 
 -------------------------------------------------------------------------------------------------------------------
@@ -342,6 +352,14 @@ This project is still a work in progress, but every experiment adds new insights
 • แสงน้อยเกินไป: อาจทำให้เกิด "Noise" ในภาพ ทำให้โมดูล AI ตรวจหาขอบเขตของมือ (Bounding Box) ได้ยากขึ้น หรืออาจระบุท่าทางผิดพลาด (เช่น เห็นกรรไกรเป็นกระดาษ)
 • แสงจ้าเกินไป: อาจเกิดแสงสะท้อน (Glare) บนผิวสัมผัสของมือ ทำให้รายละเอียดที่โมเดล AI ใช้ในการจดจำเลือนหายไป
 • ย้อนแสง: อาจทำให้มือกลายเป็นเงาดำ (Silhouette) จน AI ไม่สามารถระบุท่าทางที่ชัดเจนได้
+
+![Cleaned-AI_Gesture_Trash_Robot_Page_14](https://github.com/user-attachments/assets/5b9291ec-c9d3-4163-9cd6-3f6849b792a8)
+![Cleaned-AI_Gesture_Trash_Robot_Page_13](https://github.com/user-attachments/assets/b68765c0-9158-429a-83e0-977ba3c1e7e6)
+![Cleaned-AI_Gesture_Trash_Robot_Page_12](https://github.com/user-attachments/assets/d4c22cdf-7dd1-4145-adba-6f6c9ce8a05d)
+![Cleaned-AI_Gesture_Trash_Robot_Page_11](https://github.com/user-attachments/assets/d19fcd71-171e-4285-bfe5-91f5a2af06c5)
+![Cleaned-AI_Gesture_Trash_Robot_Page_10](https://github.com/user-attachments/assets/7ecbd7b2-d9b7-4b07-a87f-c73ff6b1738f)
+![Cleaned-AI_Gesture_Trash_Robot_Page_09](https://github.com/user-attachments/assets/87854d2d-fe0b-4d84-a9b1-7e2a476dafb6)
+
 สรุป: แม้ในแหล่งข้อมูลจะเน้นไปที่ความสำเร็จในการตรวจจับท่าทางในสภาวะการทดสอบ แต่ความแม่นยำของระบบ Vision ทุกประเภทมักจะผันแปรตาม คุณภาพของภาพ ซึ่งแสงสว่างเป็นปัจจัยหลักครับ
 เปรียบเทียบให้เห็นภาพ: การทำงานของกล้อง AI นี้เปรียบเสมือน "การพยายามมองดูท่าทางมือของเพื่อนในโรงละคร" หากไฟบนเวทีสว่างพอดี คุณจะเห็นชัดว่าเพื่อนชู 2 นิ้วหรือกำมือ (ความแม่นยำสูง) แต่ถ้าไฟสลัวเกินไปหรือมีแสงสปอตไลท์ส่องเข้าตาคุณโดยตรง คุณอาจจะมองเห็นเพียงรางๆ และคาดเดาท่าทางนั้นผิดพลาดได้ครับ
 
