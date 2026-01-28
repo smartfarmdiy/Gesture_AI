@@ -7,6 +7,10 @@ Built with Grove Vision AI Module V2 and Seeed Studio XIAO ESP32S3
 
 
 
+![Fclean_Vision_AI_Smart_Bin_Robotics_Page_01](https://github.com/user-attachments/assets/a2beef57-b4c0-4e35-ae33-39bd5239daa8)
+
+
+
 Key Steps:
 SenseCraft AI platform
 
@@ -122,6 +126,9 @@ By switching pin states, the motors can be enabled, stopped, or reversed to cont
 
 Servo Actuation
 
+![clean_Vision_AI_Smart_Bin_Robotics_Page_04](https://github.com/user-attachments/assets/d48ebe53-4515-473e-8b24-91eb6023c61d)
+
+
 A servo motor is responsible for opening and closing the trash bin lid. PWM output is used to define the rotation angle.
 void servo_set_angle(int angle) { angle = constrain(angle, 0, 180); int duty = map(angle, 0, 180, 51, 102); ledcWrite(SERVO_CHANNEL, duty); }
 This method ensures stable and precise lid movement.
@@ -169,6 +176,9 @@ Moves based on user input
 Opens the trash bin lid without physical contact
 1 Opens the trash bin lid without physical contact
 This project is still a work in progress, but every experiment adds new insights. If you have ideas for improvements—better motion control, additional gestures, or smarter behavior—I’d be excited to hear them.
+
+![clean_Vision_AI_Smart_Bin_Robotics_Page_06](https://github.com/user-attachments/assets/f8177d75-2fbb-44b8-a11e-90306124eede)
+
 
 1. การตรวจจับท่าทาง (AI Vision Layer): หุ่นยนต์จะใช้โมดูล Grove Vision AI Module ในการตรวจจับสัญญาณมือจากผู้ใช้งานในรูปแบบเรียลไทม์, โดยตัวโมดูลนี้จะรันโมเดล AI ที่พร้อมใช้งานสำหรับการจดจำท่าทางมือผ่านแพลตฟอร์ม SenseCraft AI
 2. การส่งข้อมูลและประมวลผล: เมื่อตรวจพบท่าทาง โมดูล Vision จะส่งข้อมูลการจดจำที่มีโครงสร้างแบบ JSON ไปยังหน่วยประมวลผลกลางคือ XIAO ESP32S3 ผ่านการสื่อสารแบบ I²C, จากนั้นตัวควบคุมจะทำการถอดรหัสข้อมูล JSON เพื่อระบุว่าต้องดำเนินการอย่างไรตามที่โปรแกรมไว้,
