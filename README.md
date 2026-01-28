@@ -10,6 +10,9 @@ Built with Grove Vision AI Module V2 and Seeed Studio XIAO ESP32S3
 ![Fclean_Vision_AI_Smart_Bin_Robotics_Page_01](https://github.com/user-attachments/assets/a2beef57-b4c0-4e35-ae33-39bd5239daa8)
 
 
+<img width="2752" height="1536" alt="smartbin-robot" src="https://github.com/user-attachments/assets/726e87db-bbb2-42b2-b02b-17e740995c44" />
+
+
 
 Key Steps:
 SenseCraft AI platform
