@@ -117,6 +117,10 @@ void handle_target_0(const boxes_t *box); // Forward motion void handle_target_1
 
 This design allows new gestures or behaviors to be added with minimal changes.
 
+
+![clean_Vision_AI_Smart_Bin_Robotics_Page_08](https://github.com/user-attachments/assets/9a818dcf-78b5-462f-88b9-1873b1a5eb9e)
+
+
 Motion Control System
 The robot uses four DC motors to move smoothly. Each motor is controlled through GPIO pins via motor driver modules.
 
@@ -136,6 +140,10 @@ Vision Communication Library
 The project relies on SSCMA, Seeed Studio’s official communication library, to manage data exchange between the microcontroller and the Vision AI module efficiently.
 Enclosure & Mechanical Design
 All structural components and covers were designed using Onshape, a cloud-based CAD platform.
+
+
+![clean_Vision_AI_Smart_Bin_Robotics_Page_10](https://github.com/user-attachments/assets/19884925-0f62-4837-a0d1-8b925e9a6f52)
+
 
 Benefits:
 Runs directly in the browser
@@ -192,6 +200,10 @@ This project is still a work in progress, but every experiment adds new insights
 สรุปได้ว่า หุ่นยนต์ตัวนี้ทำงานได้โดยไม่ต้องมีการสัมผัสทางกายภาพ แต่ใช้อินเทอร์เฟซที่ใช้สายตา (Visual Interface) ในการรับคำสั่งจากระยะไกล,
 เปรียบเทียบให้เห็นภาพ: กระบวนการนี้เปรียบเสมือน "วาทยกรที่ควบคุมวงดนตรี" โดยที่มือของผู้ใช้งานคือไม้บาตองที่ส่งสัญญาณ (ท่าทาง) กล้อง AI คือสายตาของนักดนตรีที่คอยจับจ้อง และตัวควบคุมหลักคือสมองของนักดนตรีที่เปลี่ยนสัญญาณมือนั้นให้กลายเป็นเสียงเพลง (การเคลื่อนที่หรือการเปิดฝาถัง) ได้อย่างถูกต้องแม่นยำครับ
 
+
+![clean_Vision_AI_Smart_Bin_Robotics_Page_02](https://github.com/user-attachments/assets/90b68faa-d957-4432-bb3d-c4c8cf0aadc9)
+
+
 ในการสร้างหุ่นยนต์ถังขยะอัจฉริยะที่ตอบสนองต่อท่าทางมือ มีการเลือกใช้อุปกรณ์ฮาร์ดแวร์และเครื่องมือทางซอฟต์แวร์ที่สำคัญดังนี้ครับ:
 1. อุปกรณ์ฮาร์ดแวร์หลัก (Hardware Components)
 • สำหรับการตรวจจับท่าทาง (Vision Layer):
@@ -238,6 +250,12 @@ This project is still a work in progress, but every experiment adds new insights
     ◦ I²C Communication: โปรโตคอลที่ใช้ในการส่งข้อมูลท่าทางที่ตรวจจับได้ในรูปแบบ JSON ระหว่างอุปกรณ์
 --------------------------------------------------------------------------------------------------------------------------
 
+![clean_Vision_AI_Smart_Bin_Robotics_Page_14](https://github.com/user-attachments/assets/5b713c06-a27d-466d-be06-0d90a3603be6)
+
+
+
+
+
    • การออกแบบโครงสร้าง:
     ◦ Onshape: แพลตฟอร์ม CAD บนคลาวด์ที่ใช้ในการออกแบบชิ้นส่วนเชิงกลและตัวเครื่องของหุ่นยนต์
 สรุปการทำงานร่วมกัน: ระบบนี้ใช้ Grove Vision AI V2 ตรวจจับท่าทางมือแล้วส่งข้อมูลผ่าน I²C ไปยัง XIAO ESP32S3 ซึ่งถูกเขียนโปรแกรมด้วย Arduino ให้แปลคำสั่ง (เช่น ท่ากำปั้นคือเดินหน้า, ท่ากรรไกรคือเปิดฝา) จากนั้นจึงส่งสัญญาณไปควบคุม มอเตอร์ DC และ เซอร์โวมอเตอร์ ให้ทำงานตามต้องการครับ,,,
@@ -245,6 +263,9 @@ This project is still a work in progress, but every experiment adds new insights
 
 
 --------------------------------------------------------------------------------------
+
+
+![clean_Vision_AI_Smart_Bin_Robotics_Page_11](https://github.com/user-attachments/assets/6e74f37a-a073-40ca-8402-c7bcfcbc8257)
 
 
 การออกแบบระบบควบคุมและโครงสร้างทางกลของหุ่นยนต์ถังขยะอัจฉริยะ ช่วยเปลี่ยนความยุ่งยากเล็กน้อยในชีวิตประจำวันให้เป็นความสะดวกสบายผ่านกระบวนการหลักดังนี้ครับ:
@@ -313,3 +334,8 @@ This project is still a work in progress, but every experiment adds new insights
 • ย้อนแสง: อาจทำให้มือกลายเป็นเงาดำ (Silhouette) จน AI ไม่สามารถระบุท่าทางที่ชัดเจนได้
 สรุป: แม้ในแหล่งข้อมูลจะเน้นไปที่ความสำเร็จในการตรวจจับท่าทางในสภาวะการทดสอบ แต่ความแม่นยำของระบบ Vision ทุกประเภทมักจะผันแปรตาม คุณภาพของภาพ ซึ่งแสงสว่างเป็นปัจจัยหลักครับ
 เปรียบเทียบให้เห็นภาพ: การทำงานของกล้อง AI นี้เปรียบเสมือน "การพยายามมองดูท่าทางมือของเพื่อนในโรงละคร" หากไฟบนเวทีสว่างพอดี คุณจะเห็นชัดว่าเพื่อนชู 2 นิ้วหรือกำมือ (ความแม่นยำสูง) แต่ถ้าไฟสลัวเกินไปหรือมีแสงสปอตไลท์ส่องเข้าตาคุณโดยตรง คุณอาจจะมองเห็นเพียงรางๆ และคาดเดาท่าทางนั้นผิดพลาดได้ครับ
+
+![clean_Vision_AI_Smart_Bin_Robotics_Page_15](https://github.com/user-attachments/assets/083f0358-01f3-4fe8-9e5a-b0e20f13e004)
+
+
+
